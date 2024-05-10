@@ -1,0 +1,70 @@
+:root{
+    --font-family: system-ui, sans-serif;
+    --color-primary: #ffb739;
+    --color-text: #333;
+    --speed: 1.5s;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+    color: var(--color-text);
+    text-transform: uppercase;
+}
+
+
+body{
+    display: flex;
+    height: 100dvh;
+}
+
+h1{
+    font-size: 8vw;
+}
+
+img{
+    animation: pulse var(--speed) infinite alternate;
+}
+
+button{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+section{
+    position: absolute;
+    display: flex;
+    inset: 2em 50px 20px;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    flex: 1;
+}
+
+#page1{
+    background-color: black;
+}
+
+#h1pag1{
+    color: aliceblue;
+}
+
+#page2{
+    display: none;
+}
+
+#previous{
+    transform: rotate(180deg);
+}
+
+@keyframes pulse {
+    from{
+        transform: scale(1);
+    }
+    to{
+        transform: scale(1.5);
+    }
+}
