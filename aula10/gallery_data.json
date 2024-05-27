@@ -1,0 +1,52 @@
+[
+  {
+    "title": "Mountain Landscape",
+    "description": "A majestic mountain range bathed in the golden light of sunset.",
+    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_FWfCYAf8Fx8rrzl5jRchznLhlbcBI9kowygTxDgsRQ&s"
+  },
+  {
+    "title": "Crystal Clear Lake",
+    "description": "A serene lake reflecting the clear blue sky and fluffy white clouds.",
+    "imageUrl": "https://images.pexels.com/photos/416676/pexels-photo-416676.jpeg"
+  },
+  {
+    "title": "Vibrant Cityscape",
+    "description": "A bustling cityscape with towering skyscrapers and colorful lights.",
+    "imageUrl": "https://media.cnn.com/api/v1/images/stellar/prod/130624174959-50-surf-spots-the-box.jpg?q=w_2365,h_1571,x_0,y_0,c_fill"
+  },
+  {
+    "title": "Cozy Cabin",
+    "description": "A charming cabin nestled amongst the trees, perfect for a winter getaway.",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Mavericks_Surf_Contest_2010b.jpg"
+  },
+  {
+    "title": "Tropical Beach",
+    "description": "A pristine beach with white sand, turquoise water, and swaying palm trees.",
+    "imageUrl": "https://www.rapturecamps.com/wp-content/uploads/2018/09/surfcamp-costa-rica.jpg"
+  },
+  {
+    "title": "Starry Night Sky",
+    "description": "A breathtaking night sky filled with millions of twinkling stars.",
+    "imageUrl": "https://images.pexels.com/photos/111085/pexels-photo-111085.jpeg?cs=srgb&dl=pexels-bradleyhook-111085.jpg&fm=jpg"
+  },
+  {
+    "title": "Ancient Ruins",
+    "description": "Mysterious ruins of an ancient civilization, shrouded in history and mystery.",
+    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8dSuHcrB-6EJqfn2HKaG4JBhL4Aq5O1Op5Iej0Y837A&s"
+  },
+  {
+    "title": "Blooming Flowers",
+    "description": "A field of vibrant flowers in full bloom, creating a tapestry of color.",
+    "imageUrl": "https://cdn.britannica.com/99/254599-050-04216CE9/Carissa-Moore-Surfer-Rip-Curl-WSL-Lower-Trestles-California-September-2021.jpg"
+  },
+  {
+    "title": "Waterfall Cascade",
+    "description": "A powerful waterfall cascading down a steep cliff, surrounded by lush greenery.",
+    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3Mqpqdj_ceRdovYSemhSPFYuOrGh4PskXjHdHJYs31g&s"
+  },
+  {
+    "title": "Desert Landscape",
+    "description": "A vast and arid desert landscape with towering dunes and a vibrant sunset.",
+    "imageUrl": "https://kimasurf.com/images/header-balisurf.jpg"
+  }
+]

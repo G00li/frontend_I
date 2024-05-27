@@ -22,7 +22,7 @@ template.innerHTML = `
                 flex-direction: column;
                 width: 500px; 
                 height: 500px; 
-                gap: 10px
+                gap: 10px;
             }
 
 
@@ -35,8 +35,8 @@ template.innerHTML = `
 
             #controls{
                 display: flex;
-                justify-content: space-between; 
-                background-color: blue;
+                justify-content: space-between;
+                background-color: blue; 
             }
 
             #play-pause{
@@ -52,8 +52,8 @@ template.innerHTML = `
         <div id = "images-container">  </div>
     
         <div id ="controls">
-            <button>Previous</button>
-            <button>Next</button>
+            <button id="previous">Previous</button>
+            <button id="next">Next</button>
         </div>
 
         <button id="play-pause"> STOP </button>
@@ -69,7 +69,9 @@ itemTemplate.innerHTML=`
     .item {
         width: 100%;
         height: 100%;
-        background-color: pink; 
+        background-image: url(https://media.istockphoto.com/id/134134047/pt/foto/surfista.jpg?s=612x612&w=0&k=20&c=LWPNI2D9muCaFyzs1NwwIFke5YsLS9KilVYcU7hrR3I=); 
+        background-position: center;
+        background-size: cover;
     }
 </style>
 
@@ -93,11 +95,20 @@ class WebGallery extends HTMLElement {
 
     connectedCallback() {
         const imageContainer = this.shadowRoot.querySelector("#images-container");
-
-        console.log(imageContainer);
-
         const item = itemTemplate.content.cloneNode(true); 
         imageContainer.appendChild(item); 
+        
+        this.shadowRoot.querySelector("#previous").onclick = () => {
+            console.log("previous clicked");
+        }
+        this.shadowRoot.querySelector("#next").onclick = () => {
+            console.log("next clicked");
+        }
+        this.shadowRoot.querySelector("#play-pause").onclick = () => {
+            console.log("play-pause clicked");
+        }
+
+
     }
 }
 customElements.define('web-gallery', WebGallery);
