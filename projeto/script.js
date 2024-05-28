@@ -2,90 +2,108 @@ import TodoModel from "./TodoModel.js";
 
 window.onload = async () => {
 
-    let currentTaskIndex; 
+    let currentTaskIndex;
 
     const model = new TodoModel();
 
-    const listsContainer = document.querySelector("#lists-container"); 
+    // O teu código aqui...
+    const listsContainer = document.querySelector("#lists-container");
+    const lists = document.querySelectorAll("ul");
+
+    lists.forEach(ul => {
+        ul.style.height = `${listsContainer.offsetHeight}px`;
+    });
     const todoHeader = document.querySelector("todo-header");
-
-
-    todoHeader.addEventListener("clicked", () =>{
+    todoHeader.state = "tasks";
+    todoHeader.addEventListener("clicked", () => {
         listsContainer.style.transform = "translateX(0)";
-        todoHeader.state = "tasks"; 
+        todoHeader.state = "tasks";
+        buildTasksList(model.getTasks());
     });
 
+    //MODAL
+    const todoModal = document.querySelector("todo-modal");
+    todoModal.addEventListener("confirm", (ev) => {
+        if(todoHeader.getAttribute("state") === "tasks") {
+            model.addTask(ev.detail.value);
+            buildTasksList(model.getTasks());
+        } else {
+            console.log(currentTaskIndex);
+            model.addItem(currentTaskIndex, ev.detail.value);
+            buildItemsList(model.getItems(currentTaskIndex));
+        }
+    })
 
 
+    //FOOTER
+    const footer = document.querySelector("footer");
+    footer.onclick = () => {
+        todoModal.show(todoHeader.getAttribute("state"));
+    }
+
+    
     const buildTasksList = (tasks) => {
-        const taskList = document.querySelector("#tasks");
-        taskList.innerHTML = "";
+        const tasksList = document.querySelector("#tasks");
+        tasksList.innerHTML = "";
+
+
+        if(tasks.length === 0){
+            const vazio = document.createElement("h2"); 
+            vazio.innerText= "Não há tarefas"; 
+            tasksList.innerHTML = vazio.textContent;
+        }
 
         tasks.forEach((task, index) => {
             const li = document.createElement("li");
             const taskItem = new TaskItem();
-
             taskItem.addEventListener("clicked", () => {
-    
-                console.log("Clicked")
-    
                 listsContainer.style.transform = "translateX(-100%)";
                 todoHeader.state = "items";
                 todoHeader.taskName = task.title;
-
                 buildItemsList(task.items);
-                currentTaskIndex=index; 
-    
+                currentTaskIndex = index;
             });
             taskItem.addEventListener("delete", () => {
                 model.deleteTask(index);
                 buildTasksList(model.getTasks());
             });
-
             taskItem.title = task.title;
 
-            taskList.append(li);
             li.append(taskItem);
+            tasksList.append(li);
         });
-    };
 
+    }
 
+    const buildItemsList = (items) => {
 
-    
-    const buildItemsList = (items) =>{
+        const checkItemsList = document.querySelector("#items");
+        checkItemsList.innerHTML = "";
 
-        const checkItemList =document.querySelector("#items"); 
-        checkItemList.innerHTML = ""; 
+        if(items.length === 0){
+            const vazio = document.createElement("h2");
+            vazio.innerText= "Não há itens";
+            checkItemsList.innerHTML = vazio.textContent;
+        }
 
         items.forEach((item, index) => {
             const li = document.createElement("li");
             const checkItem = new CheckItem();
-
-            checkItem.addEventListener("checked", (ev) =>{
-                console.log(ev.detail.checked); 
-            }); 
-
+            checkItem.addEventListener("checked", (ev) => {
+                model.updateItem(currentTaskIndex, index, ev.detail.checked);
+            });
             checkItem.addEventListener("delete", () => {
-                model.deleteITem(currentTaskIndex, index);
+                model.deleteItem(currentTaskIndex, index);
                 buildItemsList(model.getItems(currentTaskIndex));
-                console.log("Delete check item"); 
             })
-
-            checkItem.title =item.title; 
-            checkItem.checked = item.checkItem;
+            checkItem.title = item.title;
+            checkItem.checked = item.checked;
 
             li.append(checkItem);
-            checkItemList.append(li);
-
-        }
-    );
-
-
-
-
+            checkItemsList.append(li);
+            
+        });
     }
 
-    buildTasksList(model.getTasks()); 
-
-
+    buildTasksList(model.getTasks());
 }
